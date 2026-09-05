@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Mansio Society">
+  <rect width="32" height="32" rx="3" fill="#faf8f5"/>
+  <rect x="1.5" y="1.5" width="29" height="29" rx="2" fill="none" stroke="#a67c52" stroke-width="2"/>
+  <path fill="#2c4a3e" d="M8 24.5V8h3.2L16 17.6 20.8 8H24v16.5h-3.2v-11.1L16 22.6l-4.8-9.2v11.1H8z"/>
+</svg>

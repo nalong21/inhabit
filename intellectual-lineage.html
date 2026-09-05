@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intellectual Lineage — The Mansio Society for Gospel Living</title>
+  <meta name="description" content="The people and texts that formed a law-positive, covenantal reading of Scripture — read in the order they arrived in the world.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-lineage">
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">M</span>
+        <span class="logo-text">Mansio Society</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="vision.html">Vision</a>
+        <a href="intellectual-lineage.html" class="active">Lineage</a>
+        <a href="index.html#contact" class="nav-cta">Begin</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Masthead -->
+  <header class="lineage-hero">
+    <div class="container narrow">
+      <p class="eyebrow">Sources &amp; Formation</p>
+      <h1>Intellectual<br><em>Lineage</em></h1>
+      <p class="lineage-standfirst">
+        The people and texts that formed a law-positive, covenantal reading of Scripture — read in the order they arrived in the world, from the apostolic memory to the living tradition.
+      </p>
+
+      <div class="lineage-keyline">
+        <span class="k"><span class="pilcrow">¶</span> Rubricated — the fifty essential voices</span>
+        <span class="k"><span class="lozenge"></span> The wider record</span>
+      </div>
+
+      <div class="lineage-controls">
+        <button class="btn btn-ghost expand-btn" id="toggle" aria-expanded="false">Show the full lineage</button>
+        <span class="tally" id="tally"></span>
+      </div>
+    </div>
+  </header>
+
+  <!-- The Scroll -->
+  <main class="lineage-scroll container" id="scroll"></main>
+
+  <!-- Colophon -->
+  <footer class="lineage-colophon container narrow">
+    <p>
+      Names sit at their year of birth; texts at their likely composition.
+      <em class="gold">Dates marked c. are inferential</em>, and a handful of living scholars are placed by working period rather than by a year worth printing.
+    </p>
+  </footer>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark small">M</span>
+        <span>The Mansio Society for Gospel Living</span>
+      </div>
+      <p class="footer-note">
+        A society ordered toward the Ordo vitae.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const ERAS = [
+      {r:"I",   name:"The apostolic memory",             span:"to A.D. 400",   to:400},
+      {r:"II",  name:"Insular and Carolingian Christendom", span:"400 – 1050", to:1050},
+      {r:"III", name:"The schoolmen",                    span:"1050 – 1450",   to:1450},
+      {r:"IV",  name:"Reformation and the Hebrew republic", span:"1450 – 1700", to:1700},
+      {r:"V",   name:"Awakening, Hebraism, and the Dutch turn", span:"1700 – 1875", to:1875},
+      {r:"VI",  name:"The century of ruptures",          span:"1875 – 1945",   to:1945},
+      {r:"VII", name:"The living tradition",             span:"1945 –",        to:9999}
+    ];
+
+    // c: core fifty · y: sort year · d: displayed dates · g: gloss
+    const PEOPLE = [
+      {y:60,  n:"The Didache",              d:"c. 50 – 120",        c:1, g:"Gentile catechesis: bear what you can of the yoke, and begin there."},
+      {y:70,  n:"Ignatius of Antioch",      d:"d. c. 108",          c:1, g:"Whose recensions show a polemic amplified by later editing."},
+      {y:69,  n:"Polycarp of Smyrna",       d:"c. 69 – c. 155",     c:0, g:"Asian transmission"},
+      {y:120, n:"The Shepherd of Hermas",   d:"c. 100 – 150",       c:0, g:"Commandment catechesis"},
+      {y:130, n:"Irenaeus of Lyons",        d:"c. 130 – c. 202",    c:1, g:"One covenant God against Marcion; and he rebuked Victor for breaking communion."},
+      {y:131, n:"Polycrates of Ephesus",    d:"c. 130 – after 196", c:1, g:"Appealed to Philip and John against Rome, and lost the see, not the argument."},
+      {y:135, n:"Melito of Sardis",         d:"d. c. 180",          c:0, g:"Quartodeciman, yet supersessionist"},
+      {y:155, n:"Tertullian",               d:"c. 155 – c. 220",    c:1, g:"De Idololatria: idolatry as the master crime that contains all others."},
+      {y:185, n:"Origen",                   d:"c. 185 – c. 253",    c:0, g:"Fountainhead of the allegorical reading"},
+      {y:230, n:"Didascalia Apostolorum",   d:"third century",      c:1, g:"The second legislation — the ancient rival to the substance-and-administration distinction."},
+      {y:330, n:"Basil the Great",          d:"c. 330 – 379",       c:0, g:"Torah economics preached"},
+      {y:354, n:"Augustine of Hippo",       d:"354 – 430",          c:1, g:"One faith, differing sacraments — and the burial of the ceremonies in the Jerome letters."},
+      {y:385, n:"Patrick",                  d:"c. 385 – c. 461",    c:0, g:"Pre-conformity Insular church"},
+      {y:521, n:"Columba",                  d:"521 – 597",          c:0, g:"Iona, mother house of Lindisfarne"},
+      {y:540, n:"Gregory the Great",        d:"c. 540 – 604",       c:1, g:"Answering a missionary bishop’s questions by turning to Moses for the examples."},
+      {y:600, n:"Colmán of Lindisfarne",    d:"d. 676",             c:1, g:"Argued at Whitby from what he received, from his elders and from John."},
+      {y:673, n:"Bede",                     d:"673 – 735",          c:0, g:"On the Tabernacle; and the record itself"},
+      {y:735, n:"Alcuin of York",           d:"c. 735 – 804",       c:0, g:"Insular learning made Frankish polity"},
+      {y:780, n:"Rabanus Maurus",           d:"c. 780 – 856",       c:0, g:"Commentary on Leviticus"},
+      {y:849, n:"Alfred the Great",         d:"849 – 899",          c:1, g:"Opened English law with Exodus 21–23 and the letter of Acts 15."},
+      {y:955, n:"Ælfric of Eynsham",        d:"c. 955 – c. 1010",   c:0, g:"Heptateuch in the vernacular"},
+      {y:990, n:"Wulfstan of York",         d:"d. 1023",            c:0, g:"Institutes of Polity; estates and offices"},
+      {y:1033,n:"Anselm of Canterbury",     d:"1033 – 1109",        c:1, g:"Satisfaction, and the genealogy of every later argument about what Christ owed."},
+      {y:1175,n:"Robert Grosseteste",       d:"c. 1175 – 1253",     c:1, g:"De cessatione legalium — a bishop who learned Hebrew to ask this exact question."},
+      {y:1225,n:"Thomas Aquinas",           d:"1225 – 1274",        c:1, g:"The Old Law has intelligible reasons; the interlocutor who cannot be left out."},
+      {y:1270,n:"Nicholas of Lyra",         d:"c. 1270 – 1349",     c:0, g:"Literal sense, Jewish exegetes at his elbow"},
+      {y:1482,n:"Johannes Oecolampadius",   d:"1482 – 1531",        c:0, g:"Discipline belongs to the eldership"},
+      {y:1489,n:"Thomas Cranmer",           d:"1489 – 1556",        c:1, g:"Who brought the continental law-positive stream into the English formularies."},
+      {y:1491,n:"Martin Bucer",             d:"1491 – 1551",        c:0, g:"De Regno Christi"},
+      {y:1497,n:"Philip Melanchthon",       d:"1497 – 1560",        c:0, g:"The third use of the law, named"},
+      {y:1499,n:"Peter Martyr Vermigli",    d:"1499 – 1562",        c:0, g:"Zurich to Oxford; Judges and Kings"},
+      {y:1504,n:"Heinrich Bullinger",       d:"1504 – 1575",        c:1, g:"De testamento: one eternal covenant across both Testaments."},
+      {y:1509,n:"John Calvin",              d:"1509 – 1564",        c:0, g:"Sermons on Deuteronomy"},
+      {y:1511,n:"Pierre Viret",             d:"1511 – 1571",        c:1, g:"Where the Francophone law-positive stream begins."},
+      {y:1545,n:"Franciscus Junius",        d:"1545 – 1602",        c:1, g:"The Mosaic Polity: substance abides, administration changes."},
+      {y:1546,n:"Johannes Piscator",        d:"1546 – 1625",        c:0, g:"Tolerated dissent at Herborn"},
+      {y:1554,n:"Richard Hooker",           d:"1554 – 1600",        c:1, g:"Law eternal; the Anglican charter for all of this."},
+      {y:1563,n:"Johannes Althusius",       d:"1563 – 1638",        c:1, g:"Consociations from the household upward — subsidiarity four centuries early."},
+      {y:1584,n:"John Selden",              d:"1584 – 1654",        c:0, g:"Natural law by the Noahide precepts"},
+      {y:1586,n:"Petrus Cunaeus",           d:"1586 – 1638",        c:0, g:"De Republica Hebraeorum"},
+      {y:1602,n:"John Lightfoot",           d:"1602 – 1675",        c:0, g:"Horae Hebraicae"},
+      {y:1703,n:"Jonathan Edwards",         d:"1703 – 1758",        c:1, g:"Affection and obligation held together without loss to either."},
+      {y:1710,n:"Thomas Reid",              d:"1710 – 1796",        c:0, g:"Common-sense realism"},
+      {y:1759,n:"Charles Simeon",           d:"1759 – 1836",        c:1, g:"Establish the shared ground in the other man’s vocabulary, then name the difference."},
+      {y:1801,n:"Guillaume Groen van Prinsterer", d:"1801 – 1876",  c:1, g:"Unbelief and Revolution — the bridge to the Dutch creation-order line."},
+      {y:1813,n:"Franz Delitzsch",          d:"1813 – 1890",        c:0, g:"Christian Hebraism, nineteenth century"},
+      {y:1820,n:"Heinrich Heppe",           d:"1820 – 1879",        c:0, g:"Reformed dogmatics as sourcebook"},
+      {y:1824,n:"George MacDonald",         d:"1824 – 1905",        c:1, g:"Obedience is the organ of sight: you cannot know what you refuse to do."},
+      {y:1828,n:"J. B. Lightfoot",          d:"1828 – 1889",        c:1, g:"The Apostolic Fathers — the edition the Ignatian argument actually rests on."},
+      {y:1831,n:"Adolph Saphir",            d:"1831 – 1891",        c:0, g:"Jewish believer, Victorian pulpit"},
+      {y:1854,n:"Herman Bavinck",           d:"1854 – 1921",        c:0, g:"Dutch dogmatics"},
+      {y:1859,n:"Edmund Husserl",           d:"1859 – 1938",        c:0, g:"Structures found, not constructed"},
+      {y:1878,n:"Paul Philip Levertoff",    d:"1878 – 1954",        c:1, g:"Hasidic-born Anglican priest who built the argument into a liturgy."},
+      {y:1879,n:"Martin Buber",             d:"1878 – 1965",        c:0, g:"Emunah against pistis"},
+      {y:1886,n:"Franz Rosenzweig",         d:"1886 – 1929",        c:1, g:"Commandment is not code confronting you; it is the form love takes when spoken."},
+      {y:1894,n:"Herman Dooyeweerd",        d:"1894 – 1977",        c:1, g:"The law-idea: creation held by an order it did not invent."},
+      {y:1895,n:"Cornelius Van Til",        d:"1895 – 1987",        c:1, g:"No neutral ground from which the question could be asked."},
+      {y:1896,n:"J. Oliver Buswell Jr.",    d:"1895 – 1977",        c:0, g:"American Presbyterian systematics"},
+      {y:1898,n:"John Murray",              d:"1898 – 1975",        c:1, g:"Principles of Conduct — the abiding moral law with impeccable confessional cover."},
+      {y:1903,n:"Ernest F. Kevan",          d:"1903 – 1965",        c:1, g:"The Grace of Law: proof that this position is native to the tradition, not imported."},
+      {y:1905,n:"Viktor Frankl",            d:"1905 – 1997",        c:0, g:"Meaning discovered, not assigned"},
+      {y:1907,n:"Abraham Joshua Heschel",   d:"1907 – 1972",        c:1, g:"The Sabbath as a palace in time — the answer to every charge of joyless scruple."},
+      {y:1912,n:"Jacques Ellul",            d:"1912 – 1994",        c:1, g:"Law grounded in God’s righteousness rather than in nature or reason."},
+      {y:1913,n:"Carl F. H. Henry",         d:"1913 – 2003",        c:0, g:"Evangelical dogmatics with public reach"},
+      {y:1914,n:"Pierre Courthial",         d:"1914 – 2009",        c:0, g:"Aix-en-Provence; the French recommencement"},
+      {y:1916,n:"Wilber Wallis",            d:"1916 – 2006",        c:0, g:"New Testament, Covenant Seminary"},
+      {y:1917,n:"David Flusser",            d:"1917 – 2000",        c:0, g:"Jerusalem School; Jesus within Judaism"},
+      {y:1919,n:"Shmuel Safrai",            d:"1919 – 2003",        c:0, g:"Second Temple institutions"},
+      {y:1921,n:"Mary Douglas",             d:"1921 – 2007",        c:1, g:"Purity and Danger: clean and unclean as coherent order, not hygiene or taboo."},
+      {y:1922,n:"John Stott",               d:"1921 – 2011",        c:0, g:"Lausanne; proclamation and responsibility"},
+      {y:1923,n:"Jacob Milgrom",            d:"1923 – 2010",        c:1, g:"The Leviticus commentary that makes the purity system impossible to call arbitrary."},
+      {y:1926,n:"J. I. Packer",             d:"1926 – 2020",        c:0, g:"Reformed, evangelical, and Anglican at once"},
+      {y:1928,n:"Donald Bloesch",           d:"1928 – 2010",        c:0, g:"Evangelical dogmatics"},
+      {y:1929,n:"Michael Wyschogrod",       d:"1928 – 2015",        c:0, g:"Election and the body of faith"},
+      {y:1930,n:"Alasdair MacIntyre",       d:"b. 1929",            c:1, g:"Rationality is tradition-constituted — and traditions can be shown to fail from within."},
+      {y:1932,n:"Alvin Plantinga",          d:"b. 1932",            c:0, g:"Warrant and proper function"},
+      {y:1933,n:"Nicholas Wolterstorff",    d:"b. 1932",            c:0, g:"Justice: rights and wrongs"},
+      {y:1934,n:"Eugene Peterson",          d:"1932 – 2018",        c:0, g:"Psalter as the school of obedience"},
+      {y:1935,n:"Wayne A. Meeks",           d:"1932 – 2022",        c:0, g:"Morality formed by community practice"},
+      {y:1936,n:"Walter C. Kaiser Jr.",     d:"b. 1933",            c:1, g:"A single biblical ethic, unbroken from Genesis through the Epistles."},
+      {y:1937,n:"Walter Brueggemann",       d:"1933 – 2025",        c:0, g:"Torah and prophetic imagination"},
+      {y:1938,n:"Gordon Fee",               d:"1934 – 2022",        c:0, g:"Text criticism as discipline"},
+      {y:1939,n:"Dallas Willard",           d:"1935 – 2013",        c:1, g:"The Sermon on the Mount as livable curriculum; moral reality as objective as physical."},
+      {y:1940,n:"John Frame",               d:"b. 1939",            c:0, g:"Van Tillian ethics, apart from theonomy"},
+      {y:1941,n:"Jean-Marc Berthoud",       d:"b. 1939",            c:0, g:"Le règne terrestre de Dieu"},
+      {y:1942,n:"Stanley Hauerwas",         d:"b. 1940",            c:0, g:"The church as its own polity"},
+      {y:1943,n:"John N. Oswalt",           d:"b. 1940",            c:0, g:"Holiness as God’s character shared"},
+      {y:1944,n:"Anthony J. Saldarini",     d:"1941 – 2001",        c:1, g:"Matthew’s community as a Jewish group still contending inside Israel."},
+      {y:1945,n:"John Goldingay",           d:"b. 1942",            c:0, g:"Old Testament theology, three volumes"},
+      {y:1946,n:"Gordon Wenham",            d:"b. 1943",            c:0, g:"Story as Torah"},
+      {y:1947,n:"Daniel I. Block",          d:"b. 1943",            c:0, g:"The gospel according to Moses"},
+      {y:1948,n:"Willem VanGemeren",        d:"b. 1943",            c:0, g:"The Reformed view, stated in house"},
+      {y:1949,n:"Alan F. Segal",            d:"1945 – 2011",        c:0, g:"Rebecca’s children; two powers"},
+      {y:1950,n:"Oliver O’Donovan",         d:"b. 1945",            c:1, g:"Political authority normed by Israel’s law, with no theonomic commitment."},
+      {y:1951,n:"Vern Poythress",           d:"b. 1946",            c:0, g:"Shadow of Christ in the Law of Moses"},
+      {y:1952,n:"Oskar Skarsaune",          d:"b. 1946",            c:1, g:"In the Shadow of the Temple; the Jewish believers volume."},
+      {y:1953,n:"Daniel Boyarin",           d:"b. 1946",            c:0, g:"The border as manufactured"},
+      {y:1954,n:"Raymond Westbrook",        d:"1946 – 2009",        c:1, g:"Ancient Near Eastern codes were paradigm cases, not statutes — so case law is the genre."},
+      {y:1955,n:"Christopher J. H. Wright", d:"b. 1947",            c:1, g:"Israel’s law as paradigm for the nations."},
+      {y:1956,n:"Philip S. Alexander",      d:"b. c. 1947",         c:0, g:"The parting, from the rabbinic side"},
+      {y:1957,n:"Sinclair Ferguson",        d:"b. 1948",            c:0, g:"Legalism and antinomianism, one cure"},
+      {y:1958,n:"Robert S. Rayburn",        d:"b. c. 1948",         c:0, g:"Old and new covenants contrasted"},
+      {y:1959,n:"Shaye J. D. Cohen",        d:"b. 1948",            c:0, g:"How the boundary of Israel was drawn"},
+      {y:1960,n:"Ray R. Sutton",            d:"b. c. 1949",         c:0, g:"Covenant model, then episcopal order"},
+      {y:1961,n:"Jon D. Levenson",          d:"b. 1949",            c:0, g:"Sinai and Zion"},
+      {y:1962,n:"Ben Witherington III",     d:"b. 1951",            c:0, g:"Socio-rhetorical exegesis"},
+      {y:1963,n:"Paula Fredriksen",         d:"b. 1951",            c:0, g:"Paul as the pagans’ apostle"},
+      {y:1964,n:"Nancey Murphy",            d:"b. 1951",            c:0, g:"Theology as a research programme"},
+      {y:1965,n:"Gerald McDermott",         d:"b. 1952",            c:0, g:"Edwards, and Israel’s continuing place"},
+      {y:1966,n:"Mark D. Nanos",            d:"b. c. 1954",         c:0, g:"Gentiles who remained Gentiles, within a Jewish movement"},
+      {y:1967,n:"Jonathan R. Wilson",       d:"b. mid-1950s",       c:0, g:"After Virtue, read ecclesially"},
+      {y:1968,n:"James Bryan Smith",        d:"b. mid-1950s",       c:0, g:"Apprenticeship and formation"},
+      {y:1968.5,n:"Peter J. Leithart",      d:"b. 1959",            c:1, g:"Reads the whole ritual order as an abiding pattern — typology as structure, not ornament."},
+      {y:1969,n:"Craig Keener",             d:"b. 1960",            c:0, g:"The Acts commentary of record"},
+      {y:1970,n:"Markus Bockmuehl",         d:"b. 1961",            c:1, g:"Jewish Law in Gentile Churches — the monograph on the question this all turns on."},
+      {y:1971,n:"Joshua Berman",            d:"b. 1964",            c:0, g:"Torah as common law, not statute"},
+      {y:1972,n:"James K. A. Smith",        d:"b. 1970",            c:1, g:"We are formed by what we repeatedly love and do, not by what we conclude."},
+      {y:1973,n:"C. Kavin Rowe",            d:"b. c. 1973",         c:1, g:"Rival traditions constitute rival persons; there is no neutral place to choose from."},
+      {y:1974,n:"Michael Bird",             d:"b. 1974",            c:1, g:"The New Perspective brought into working relation with the Reformed one."},
+      {y:1975,n:"Becker &amp; Reed",        d:"contemporary",       c:0, g:"The ways that never parted"},
+      {y:1976,n:"Matthew Thiessen",         d:"contemporary",       c:1, g:"What Gentiles as Gentiles are actually obliged to do."},
+      {y:1977,n:"Joshua M. McNall",         d:"b. early 1980s",     c:1, g:"The Mosaic of Atonement — hold the models together rather than choosing."},
+      {y:1978,n:"Dru Johnson",              d:"contemporary",       c:1, g:"Rites are how knowledge is acquired, not how it is decorated."},
+      {y:1979,n:"Jonathan Burnside",        d:"contemporary",       c:0, g:"God, justice, and society"},
+      {y:1980,n:"Ray Pritz",                d:"contemporary",       c:0, g:"Nazarene Jewish Christianity"},
+      {y:1981,n:"Robert G. Rayburn II",     d:"contemporary",       c:0, g:"Psalm 95 as a key to Hebrews"}
+    ];
+
+    const scroll = document.getElementById("scroll");
+    const sorted = PEOPLE.slice().sort((a,b)=>a.y-b.y);
+
+    let html = "";
+    ERAS.forEach((era,i)=>{
+      const from = i===0 ? -9999 : ERAS[i-1].to;
+      const band = sorted.filter(p=>p.y>from && p.y<=era.to);
+      if(!band.length) return;
+      html += `<section class="era">
+        <div class="era-label">
+          <span class="roman">${era.r}</span>
+          <span class="era-name">${era.name}<span class="span">${era.span}</span></span>
+        </div>`;
+      band.forEach(p=>{
+        html += `<div class="entry ${p.c?"core":"rest"}">
+          <div class="date">${p.d}</div>
+          <div class="mark">${p.c?"¶":""}</div>
+          <div class="body">
+            <span class="entry-name">${p.n}</span>
+            <span class="gloss">${p.g}</span>
+          </div>
+        </div>`;
+      });
+      html += `</section>`;
+    });
+    scroll.innerHTML = html;
+
+    const coreCount = PEOPLE.filter(p=>p.c).length;
+    const allCount = PEOPLE.length;
+    const tally = document.getElementById("tally");
+    const btn = document.getElementById("toggle");
+
+    function setTally(){
+      tally.textContent = document.body.classList.contains("all")
+        ? `${allCount} entries`
+        : `${coreCount} of ${allCount} entries`;
+    }
+    setTally();
+
+    btn.addEventListener("click", ()=>{
+      const open = document.body.classList.toggle("all");
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Show the fifty" : "Show the full lineage";
+      setTally();
+    });
+
+    // Mobile menu
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    toggle?.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
