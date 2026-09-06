@@ -1,6 +1,7 @@
 /* ========================================
-   The Mansio Society for Gospel Living
+   Inhabit — church plant in Volcán, Panama
    Clean, contemplative, classical aesthetic
+   (Mansio Society remains the deeper vision pattern)
    ======================================== */
 
 :root {
@@ -1056,4 +1057,204 @@ body.all .entry.rest {
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
+}
+
+
+/* ========== Inhabit mission pages ========== */
+.nav-secondary {
+  color: var(--muted) !important;
+  font-weight: 400 !important;
+}
+
+.nav-secondary:hover,
+.nav-secondary.active {
+  color: var(--accent) !important;
+}
+
+.nav a.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.hero-secondary-links {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.hero-secondary-links a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  text-decoration-thickness: 1px;
+}
+
+.hero-secondary-links a:hover {
+  color: var(--accent-light);
+}
+
+.page-hero {
+  padding: 8rem 0 2.5rem;
+  background:
+    radial-gradient(ellipse at 15% 40%, rgba(44, 74, 62, 0.05) 0%, transparent 55%),
+    var(--paper);
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.page-standfirst {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  line-height: 1.5;
+  max-width: 36rem;
+}
+
+.section-tight {
+  padding-top: 3.5rem;
+}
+
+.prose-h2 {
+  font-family: var(--serif);
+  font-size: 1.65rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2.5rem;
+}
+
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 14rem;
+  margin: 2rem 0 2.25rem;
+  border: 1px dashed var(--border);
+  background: var(--paper-dark);
+  color: var(--muted);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.info-card {
+  padding: 1.5rem 1.35rem;
+  background: var(--paper);
+  border: 1px solid var(--border);
+}
+
+.info-card h3 {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.35rem 0 0.75rem;
+}
+
+.info-card p:last-child {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.give-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin: 1.75rem 0 1.25rem;
+}
+
+.fine-print {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.fine-print a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.prayer-list {
+  margin: 2rem 0 3rem;
+}
+
+.updates-stub {
+  padding: 2rem 1.75rem;
+  background: var(--paper-dark);
+  border: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+
+.updates-stub p {
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.updates-stub .fine-print {
+  margin-bottom: 0;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem 1.25rem;
+  font-size: 0.85rem;
+}
+
+.footer-nav a {
+  color: var(--ink-soft);
+}
+
+.footer-nav a:hover {
+  color: var(--accent);
+}
+
+.footer-note a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.point-list a {
+  color: inherit;
+}
+
+.point-list a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 800px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    gap: 0;
+  }
+
+  .page-hero {
+    padding-top: 7rem;
+  }
 }

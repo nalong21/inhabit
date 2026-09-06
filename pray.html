@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pray — Inhabit · Volcán, Panama</title>
+  <meta name="description" content="Pray for Inhabit’s church plant in Volcán, Panama. Petitions and occasional updates.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">I</span>
+        <span class="logo-text">Inhabit</span>
+      </a>
+      <nav class="nav">
+        <a href="mission.html">Story</a>
+        <a href="volcan.html">Volcán</a>
+        <a href="pray.html" class="active">Pray</a>
+        <a href="vision.html" class="nav-secondary">Vision</a>
+        <a href="intellectual-lineage.html" class="nav-secondary">Lineage</a>
+        <a href="partner.html" class="nav-cta">Partner</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <header class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow">Prayer</p>
+      <h1>Ask with us</h1>
+      <p class="page-standfirst">
+        Prayer is not a substitute for sending; it is the first company we keep. Updates will appear here when there is something sober to report.
+      </p>
+    </div>
+  </header>
+
+  <main class="section section-tight">
+    <div class="container narrow">
+      <div class="prose">
+        <p class="lead">
+          We ask for prayer as the family prepares to leave in <strong>January 2027</strong>, and afterward as a church takes shape in Volcán.
+        </p>
+      </div>
+
+      <ul class="point-list prayer-list">
+        <li>
+          <strong>Preparation</strong>
+          <span>Clarity, patience, and integrity in the months of paperwork, partnership, and leave-taking.</span>
+        </li>
+        <li>
+          <strong>Language and neighbors</strong>
+          <span>Humility to learn Spanish and local custom before assuming we have much to teach.</span>
+        </li>
+        <li>
+          <strong>A people gathered</strong>
+          <span>That a congregation would form around Word and Table—not around personality or imported preferences.</span>
+        </li>
+        <li>
+          <strong>Open doors without thin walls</strong>
+          <span>Hospitality that welcomes the stranger while keeping a thick, recognizable Christian pattern of life.</span>
+        </li>
+        <li>
+          <strong>Endurance</strong>
+          <span>Grace to stay when the work is slow, and wisdom to repent when we are wrong.</span>
+        </li>
+      </ul>
+
+      <div class="updates-stub">
+        <p class="section-label">Updates</p>
+        <h2 class="prose-h2">Occasional notes</h2>
+        <p>
+          <!-- TODO: replace stub with real update posts or a newsletter link when available -->
+          No public update yet. When there is news worth circulating—departure milestones, arrival, first gatherings—it will be listed here in plain language.
+        </p>
+        <p class="fine-print">
+          Prefer email? Write
+          <!-- TODO: replace with preferred prayer/updates address if different -->
+          <a href="mailto:hello@mansiosociety.org?subject=Inhabit%20prayer">hello@mansiosociety.org</a>
+          and ask to be notified.
+        </p>
+      </div>
+
+      <div class="page-actions">
+        <a href="partner.html" class="btn btn-primary">Partner</a>
+        <a href="mission.html" class="btn btn-ghost">Read the story</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark small">I</span>
+        <span>Inhabit</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="mission.html">Story</a>
+        <a href="volcan.html">Volcán</a>
+        <a href="partner.html">Partner</a>
+        <a href="pray.html">Pray</a>
+        <a href="vision.html">Vision</a>
+        <a href="intellectual-lineage.html">Lineage</a>
+      </nav>
+      <p class="footer-note">
+        Inhabit is the public face of a church plant in Volcán, Panama. The deeper ecclesial pattern is the <a href="vision.html">Mansio Society for Gospel Living</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    toggle?.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

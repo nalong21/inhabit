@@ -1,32 +1,36 @@
-# The Mansio Society for Gospel Living
+# Inhabit
 
-Static site: Home, Vision, and Intellectual Lineage.
+Static site for a church plant in **Volcán, Panama** (Chiriquí / Tierras Altas). Inhabit is the public face; the Mansio Society for Gospel Living remains the deeper ecclesial vision (`vision.html`, `intellectual-lineage.html`).
 
-## Files
+Departure planned for **January 2027**.
 
-- `index.html` — home
-- `vision.html` — Inhabit vision paper
+## Pages
+
+- `index.html` — mission-first home (Story / Partner / Pray)
+- `mission.html` — story of the sending
+- `volcan.html` — the place
+- `partner.html` — partnership categories (no dollar amounts; giving URLs TBD)
+- `pray.html` — prayer list and updates stub
+- `vision.html` — Inhabit / Mansio vision paper
 - `intellectual-lineage.html` — sources and formation
 - `styles.css` — shared look and feel
+- `favicon.svg` — site icon
 
-## Put it on GitHub Pages
+## GitHub Pages
 
-1. Create a new GitHub repository (public, if you want a free `username.github.io` or project site).
-2. Upload these files to the **root** of the repo (not inside a subfolder).
-3. On GitHub: **Settings → Pages**.
-4. Under **Build and deployment**, set Source to **Deploy from a branch**.
-5. Branch: `main` (or `master`), folder: `/ (root)`. Save.
+Repo: [nalong21/inhabit](https://github.com/nalong21/inhabit)
 
-GitHub will give you a URL like `https://yourname.github.io/repo-name/`.
+Live site: [https://nalong21.github.io/inhabit/](https://nalong21.github.io/inhabit/)
 
-## Custom domain (mansiosociety.org / .com)
-
-1. In the same Pages settings, add `mansiosociety.org` (and www if you want it).
-2. At your domain registrar, point the domain at GitHub Pages (GitHub shows the DNS records to use).
-3. Optional: add a file named `CNAME` in the repo whose only line is `mansiosociety.org`.
+Settings: **Pages → Deploy from a branch → `main` / (root)**.
 
 ## Edit by hand
 
-Open any `.html` file in a text editor. Keep `styles.css` in the same folder. After you commit and push, Pages rebuilds in a minute or two.
+Plain HTML/CSS/JS. No build step. After commit and push, Pages rebuilds in a minute or two.
 
-This folder is plain HTML/CSS/JS. No build step, Node, or Netlify config is required.
+Placeholders to replace later:
+
+- Giving URLs on `partner.html` (`#give`, `#give-monthly`)
+- `[family photo]` on `mission.html`
+- Exact budgets (intentionally omitted until ready)
+- Contact address if different from `hello@mansiosociety.org`

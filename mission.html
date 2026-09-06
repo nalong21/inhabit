@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Story — Inhabit · Volcán, Panama</title>
+  <meta name="description" content="The story of a family sent under Inhabit to plant a church in Volcán, Panama—Chiriquí’s Tierras Altas.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">I</span>
+        <span class="logo-text">Inhabit</span>
+      </a>
+      <nav class="nav">
+        <a href="mission.html" class="active">Story</a>
+        <a href="volcan.html">Volcán</a>
+        <a href="pray.html">Pray</a>
+        <a href="vision.html" class="nav-secondary">Vision</a>
+        <a href="intellectual-lineage.html" class="nav-secondary">Lineage</a>
+        <a href="partner.html" class="nav-cta">Partner</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <header class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow">The Story</p>
+      <h1>Sent to dwell</h1>
+      <p class="page-standfirst">
+        Inhabit names a simple intention: to plant a church in Volcán by living there as neighbors, not as visitors with a program.
+      </p>
+    </div>
+  </header>
+
+  <main class="section section-tight">
+    <div class="container narrow">
+      <div class="prose">
+        <p class="lead">
+          Nate Long and family are being sent under Inhabit to plant a church in Volcán, Panama—in the Chiriquí highlands known as the Tierras Altas. Departure is planned for <strong>January 2027</strong>.
+        </p>
+
+        <div class="media-placeholder" role="img" aria-label="Family photo placeholder">
+          <!-- TODO: replace with a real family photograph -->
+          <span>[family photo]</span>
+        </div>
+
+        <p>
+          The work is ecclesial before it is entrepreneurial. A church plant, in this sense, is not a brand launch or a transfer of Sunday preferences from one country to another. It is the slow formation of a people who gather around Word and Table, who learn to belong to one another, and who keep an open door for the stranger without dissolving the pattern that makes the door worth entering.
+        </p>
+        <p>
+          Inhabit is the public face of that sending. Behind it stands a longer vision—the Mansio Society for Gospel Living—concerned with settlements ordered by an <em>Ordo vitae</em>: a disciplined pattern of life that corresponds to the gospel rather than merely decorating it. Volcán is where that vision first takes address, climate, and neighbors.
+        </p>
+
+        <h2 class="prose-h2">What we mean by plant</h2>
+        <p>
+          We mean a congregation that can be inhabited: catechesis that forms adults and children; worship that is recognizable as Christian rather than merely contemporary; hospitality practiced as ordinary evangelism; and economic life that does not pretend the gospel has nothing to say about work, money, and place.
+        </p>
+        <p>
+          We do not mean a franchise. The Tierras Altas already have their own languages, histories, and congregations. Faithfulness will look like learning before teaching, and like patience before scale.
+        </p>
+
+        <h2 class="prose-h2">What is asked of friends</h2>
+        <p>
+          Some will read and leave it at that. Some will pray. Some will underwrite the practical load of sending, settling, and sustaining a household and a fledgling church. Those categories are listed plainly on the partnership page—without invented budgets or urgency theater.
+        </p>
+      </div>
+
+      <div class="page-actions">
+        <a href="volcan.html" class="btn btn-ghost">About Volcán</a>
+        <a href="partner.html" class="btn btn-primary">Partner</a>
+        <a href="pray.html" class="btn btn-ghost">Pray</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark small">I</span>
+        <span>Inhabit</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="mission.html">Story</a>
+        <a href="volcan.html">Volcán</a>
+        <a href="partner.html">Partner</a>
+        <a href="pray.html">Pray</a>
+        <a href="vision.html">Vision</a>
+        <a href="intellectual-lineage.html">Lineage</a>
+      </nav>
+      <p class="footer-note">
+        Inhabit is the public face of a church plant in Volcán, Panama. The deeper ecclesial pattern is the <a href="vision.html">Mansio Society for Gospel Living</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    toggle?.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>

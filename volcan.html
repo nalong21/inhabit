@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volcán — Inhabit · Panama</title>
+  <meta name="description" content="Volcán, Panama—Chiriquí’s Tierras Altas highlands: the place where Inhabit is planting a church.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">I</span>
+        <span class="logo-text">Inhabit</span>
+      </a>
+      <nav class="nav">
+        <a href="mission.html">Story</a>
+        <a href="volcan.html" class="active">Volcán</a>
+        <a href="pray.html">Pray</a>
+        <a href="vision.html" class="nav-secondary">Vision</a>
+        <a href="intellectual-lineage.html" class="nav-secondary">Lineage</a>
+        <a href="partner.html" class="nav-cta">Partner</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <header class="page-hero">
+    <div class="container narrow">
+      <p class="eyebrow">The Place</p>
+      <h1>Volcán</h1>
+      <p class="page-standfirst">
+        Chiriquí Province · Tierras Altas · western Panama, near the Costa Rican border.
+      </p>
+    </div>
+  </header>
+
+  <main class="section section-tight">
+    <div class="container narrow">
+      <div class="prose">
+        <p class="lead">
+          Volcán is a highland town in Panama’s coffee country—cooler than the coasts, agricultural in rhythm, and set along roads that connect Boquete, Cerro Punta, and the frontier.
+        </p>
+        <p>
+          The Tierras Altas are not exotic scenery for a brochure. They are a working landscape: farms, markets, schools, congregations already present, and the ordinary pressures of modern life arriving at their own pace. A church plant here must learn the place before it can speak to it.
+        </p>
+
+        <h2 class="prose-h2">Why here</h2>
+        <p>
+          We are going because a particular sending has a particular address. Volcán offers a setting where dwelling is possible: a climate that supports long residence, a region with room for a new congregation without pretending the gospel has never been heard, and a community small enough that presence cannot hide behind programming.
+        </p>
+        <p>
+          Departure for the field is planned for <strong>January 2027</strong>. What happens after arrival will be slower than fundraising copy usually admits—language, neighbors, worship, and the patient work of becoming known.
+        </p>
+
+        <h2 class="prose-h2">What we will not claim</h2>
+        <p>
+          We will not invent demographics to justify urgency, or paint the highlands as empty of Christian witness. Faithfulness does not require a vacuum. It requires a people willing to stay.
+        </p>
+      </div>
+
+      <div class="page-actions">
+        <a href="mission.html" class="btn btn-ghost">Read the story</a>
+        <a href="partner.html" class="btn btn-primary">Partner</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark small">I</span>
+        <span>Inhabit</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="mission.html">Story</a>
+        <a href="volcan.html">Volcán</a>
+        <a href="partner.html">Partner</a>
+        <a href="pray.html">Pray</a>
+        <a href="vision.html">Vision</a>
+        <a href="intellectual-lineage.html">Lineage</a>
+      </nav>
+      <p class="footer-note">
+        Inhabit is the public face of a church plant in Volcán, Panama. The deeper ecclesial pattern is the <a href="vision.html">Mansio Society for Gospel Living</a>.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav');
+    toggle?.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.classList.toggle('open');
+    });
+  </script>
+</body>
+</html>
