@@ -1237,6 +1237,18 @@ body.all .entry.rest {
 .family-band .media-figure img {
   max-height: 22rem;
 }
+.family-band .media-figure--portrait {
+  justify-self: center;
+  width: 100%;
+  max-width: 20rem;
+}
+.family-band .media-figure--portrait img {
+  width: 100%;
+  max-width: 20rem;
+  max-height: 24rem;
+  aspect-ratio: 4 / 5;
+  object-position: center 15%;
+}
 .family-band-copy h2 {
   margin-top: 0.35rem;
 }
